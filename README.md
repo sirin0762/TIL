@@ -6,6 +6,11 @@
 - 더 자세하게 적어야 할 경우, 블로그에 포스팅 한다
 
 ## 분류
+
+### Javascript
+- [모던 JS 튜토리얼 1](https://github.com/sirin0762/TIL/blob/main/Javascript/1_javascript.md)
+
+
 ### Node.js
 - [Node.js 강의 with Zero cho 1](https://github.com/sirin0762/TIL/blob/main/Nodejs/1_start_node.md)
 - [Node.js 강의 with Zero cho 2](https://github.com/sirin0762/TIL/blob/main/Nodejs/2_javascript.md)
