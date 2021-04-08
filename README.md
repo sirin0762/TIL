@@ -12,6 +12,7 @@
 - [모던 JS 튜토리얼 2](https://github.com/sirin0762/TIL/blob/main/Javascript/2_javascript.md)
 - [모던 JS 튜토리얼 3](https://github.com/sirin0762/TIL/blob/main/Javascript/3_javascript.md)
 - [모던 JS 튜토리얼 4](https://github.com/sirin0762/TIL/blob/main/Javascript/4_javascript.md)
+- [모던 JS 튜토리얼 5](https://github.com/sirin0762/TIL/blob/main/Javascript/5_javascript.md)
 
 
 ### Node.js
