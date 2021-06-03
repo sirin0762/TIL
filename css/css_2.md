@@ -13,3 +13,21 @@ display를 통해 element의 박스 상태를 조절할 수 있다.
 
 만약 본인이 쓰고 있는 css 스타일링의 브라우저 호환성이 궁금하다면 can i use 홈페이지에 들어가서 확인 할 수 있다.    
 [can i use 공식 홈페이지](https://caniuse.com/)
+
+## Flexbox
+1. container에 적용되는 속성값
+  - display
+  - flex-direction
+  - flex-wrap
+  - flex-flow
+  - justify-content
+  - align-items
+  - align-content
+2. items에 적용되는 속성값
+  - order
+  - flex-grow
+  - flex-shrink
+  - flex
+  - align-self
+
+flexbox는 Main-axis 와 Cross-axis를 이용하여 정렬. [flex-box docs](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 참조하면된다.
