@@ -31,3 +31,23 @@ display를 통해 element의 박스 상태를 조절할 수 있다.
   - align-self
 
 flexbox는 Main-axis 와 Cross-axis를 이용하여 정렬. [flex-box docs](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) 참조하면된다.
+
+
+## css 반응형 개념 
+`content is like a water` 라는 말 같이, 담는 용기에 따라 내용물이 채워지도록 만드는 방식이다. px 을 이용하는 것이 아닌, flex, grid, %, vw, vh 를 이용하여 고정된 크기가 아닌 값이 변할수 있도록 하게 만든다.   
+
+![image](https://user-images.githubusercontent.com/60607880/120652704-fe0a9680-c4ba-11eb-9d39-0cd1709726b3.png)   
+
+반응형으로 만드는 기준 값들을 아래 이미지로 알아보자.    
+![image](https://user-images.githubusercontent.com/60607880/120653053-4e81f400-c4bb-11eb-9e5d-ec6550b582ff.png)   
+
+문법은 다음과 같다.
+```css
+@media media-type and (media-feature-rule) {
+  /* CSS rules go here */
+}
+```   
+- media-type : all, print, screen, speech
+- and : and, not, only, comma(.)
+- media feature : [미디어 쿼리 문서](https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries)
+
