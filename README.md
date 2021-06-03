@@ -8,8 +8,8 @@
 ## 분류
 
 ### HTML
-- [html_1](https://github.com/sirin0762/TIL/HTML/html_1.md)
-- [html 2](https://github.com/sirin0762/TIL/HTML/html_2.md)
+- [html 기본 1편](https://github.com/sirin0762/TIL/blob/main/HTML/html_1.md)
+- [html 기본 2편](https://github.com/sirin0762/TIL/blob/main/HTML/html_2.md)
 
 ### Javascript
 - [모던 JS 튜토리얼 1](https://github.com/sirin0762/TIL/blob/main/Javascript/1_javascript.md)
