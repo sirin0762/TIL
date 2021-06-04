@@ -13,7 +13,11 @@
 
 ### CSS
 
-- [css 기본 1편](https://github.com/sirin0762/TIL/blob/main/HTML/css_1.md)
+- [css 기본 1편](https://github.com/sirin0762/TIL/blob/main/css/css_1.md)
+- [css 기본 2편](https://github.com/sirin0762/TIL/blob/main/css/css_2.md)
+
+### 웹 디자인 도구 모음
+- [도구 모음 1]()
 
 ### Javascript
 - [모던 JS 튜토리얼 1](https://github.com/sirin0762/TIL/blob/main/Javascript/1_javascript.md)
