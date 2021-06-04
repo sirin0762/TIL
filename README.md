@@ -13,6 +13,8 @@
 
 ### CSS
 
+- [css 기본 1편](https://github.com/sirin0762/TIL/blob/main/HTML/css_1.md)
+
 ### Javascript
 - [모던 JS 튜토리얼 1](https://github.com/sirin0762/TIL/blob/main/Javascript/1_javascript.md)
 - [모던 JS 튜토리얼 2](https://github.com/sirin0762/TIL/blob/main/Javascript/2_javascript.md)
@@ -22,8 +24,6 @@
 - [모던 JS 튜토리얼 6](https://github.com/sirin0762/TIL/blob/main/Javascript/6_javascript.md)
 - [모던 JS 튜토리얼 7](https://github.com/sirin0762/TIL/blob/main/Javascript/7_javascript.md)
 - [모던 JS 튜토리얼 8](https://github.com/sirin0762/TIL/blob/main/Javascript/8_javascript.md)
-- 
-
 
 ### Node.js
 - [Node.js 강의 with Zero cho 1](https://github.com/sirin0762/TIL/blob/main/Nodejs/1_start_node.md)
