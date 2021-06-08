@@ -10,3 +10,6 @@ Canva는 로고 제작이나 배경 작업 등 왠만한 모든 디자인이 가
 
 ### remove.bg
 [remove.bg : 이미지 흰색 배경 제거](https://www.remove.bg/ko)
+
+### img compresser
+[img compressor : 이미지 파일 크기 줄이기](https://imagecompressor.com/)
