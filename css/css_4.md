@@ -46,3 +46,15 @@ line-height 속성은 텍스트의 길이를 정한다. 이때 부모의 길이�
   
 ### 5. justify-content, align-items
 사실 이 방법이 가장 쉽고 모던하다. 부모를 flexbox로 만들어 해당 두 속성을 center로 주면된다.
+
+  
+## responsive-background
+반응형에 들어가는 백그라운드 이미지를 알아보자
+```css
+background-repeat : no-repeat; // 이미지 반복 x
+background-position : center; // 이미지의 가운데를 중심으로 보이게
+background-size : cover 
+
+background : no-repeat center cover; // 한번에 선언가능
+```
+CSS background-size 속성은 요소 배경 이미지의 크기를 설정합니다. 그대로 두거나, 늘리고 줄이거나, 공간에 맞출                              수 있습니다. 배경 이미지로 덮이지 않은 공간은 background-color 속성으로 채워지고, 배경 이미지에서 투명하거나 반투명한 부분을 통해서도 배경색이 보입니다. cover는 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정. 이미지의 가로세로비가 요소와 다르다면 이미지를 세로 또는 가로방향으로 잘라내어 빈 공간이 생기지 않도록 설정합니다.
