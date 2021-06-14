@@ -43,3 +43,6 @@ transform: translate(30%, 50%);
 
 ### 4. Text centering(hacky 함)
 line-height 속성은 텍스트의 길이를 정한다. 이때 부모의 길이와 동일하게 설정하면 텍스트가 수직 정렬이 되는 효과를 줄 수 있다.
+  
+### 5. justify-content, align-items
+사실 이 방법이 가장 쉽고 모던하다. 부모를 flexbox로 만들어 해당 두 속성을 center로 주면된다.
