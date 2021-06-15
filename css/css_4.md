@@ -32,6 +32,18 @@ translate() CSS 함수는 요소를 수평 및/또는 수직 방향으로 재배
 /* Single <length-percentage> values */
 transform: translate(200px);  // x축만 이동
 transform: translate(50%);
+  
+## Transform
+transform 은 요소를 변형하고 움직일 때 사용하는 속성이다. x, y 축 이동 및 skew, scale 등이 가능하다. 기본적인 것부터 알아보면
+```css
+.box2{
+  transform : translateX(100px) // translate 함수 : x, y, z 축의 이동 담당
+  transform : trnaslate(50px, -20px);
+  transform : scale(1.2);  // 요소의 크기 변경
+  transform : rotate(45deg) // 요소의 회전(시계 방향)
+  transform : translate(100px, 100px) scale(2) rotate(45deg); // 합쳐서 사용가능
+}
+  ```
 
 /* Double <length-percentage> values */
 transform: translate(100px, 200px);   // x, y축 이동
