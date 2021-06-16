@@ -13,3 +13,27 @@
 
 ### cubic-bezier
 에니메이팅 되는 방식(linear, ease-in 등)을 커스터마이징 할 수 있다. 값은 `cubic-beizer()`함수를 쓰면 된다. 커스터마이징 하는 웹사이트는 [cubic-beizer](https://cubic-bezier.com/#.17,.67,.83,.67)이다.
+
+
+## css 변수선언
+css도 프로그래밍 언어처럼 변수 선언이 가능하다. `--변수명`으로 선언하면 된다. 이를 `custom property` 라고 한다.
+```css
+:root{
+  --background-color : thistle; //background-color 라는 변수 선언 및 정의
+}
+
+.first-list{
+  background-color : var(--background-color); //var() 함수를 이용하여 변수를 사용할 수 있다.
+}
+```   
+
+일단 root 부터 보면, 
+>CSS :root 의사 클래스는 문서 트리의 루트 요소를 선택합니다 HTML의 루트 요소는 <html> 요소이므로, :root의 명시도가 더 낮다는 점을 제외하면 html 선택자와 똑같습니다.   
+  
+그 다음은 변수의 적용범위 인데, 해당 요소와 요소 자식에만 국한되는 범위를 가지고 있다. 
+  
+### calc 함수
+calc 함수는 css 내에서 계산을 할 수 있도록 해주는 함수이다. 
+```css
+  margin : calc(var(--margin)); // root 에서 --margin을 정의 후 사용
+```
