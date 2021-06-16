@@ -18,8 +18,8 @@
 - [css 기본 1편](https://github.com/sirin0762/TIL/blob/main/css/css_1.md)
 - [css 기본 2편](https://github.com/sirin0762/TIL/blob/main/css/css_2.md)
 - [css 기본 3편](https://github.com/sirin0762/TIL/blob/main/css/css_3.md)
-- [css 기본 3편](https://github.com/sirin0762/TIL/blob/main/css/css_4.md)
-- [css 기본 3편](https://github.com/sirin0762/TIL/blob/main/css/css_5.md)
+- [css 기본 4편](https://github.com/sirin0762/TIL/blob/main/css/css_4.md)
+- [css 기본 5편](https://github.com/sirin0762/TIL/blob/main/css/css_5.md)
 
 
 ### 웹 디자인 도구 모음
