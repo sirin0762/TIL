@@ -37,3 +37,29 @@ calc 함수는 css 내에서 계산을 할 수 있도록 해주는 함수이다.
 ```css
   margin : calc(var(--margin)); // root 에서 --margin을 정의 후 사용
 ```
+  
+### Typography
+Typography 란 웹페이지를 구성할 때 공통적으로 쓰는 텍스트의 스타일링 요소를 동일하게 하여 재생산성을 높이는 방식이다.
+```css
+  /* Typography */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+
+h2 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-semi-bold);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight-regular);
+  color: var(--color-black);
+  margin: 8px 0px;
+}
+```
