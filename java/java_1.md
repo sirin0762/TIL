@@ -10,4 +10,3 @@ jdk를 설치한 뒤에 환경 변수 설정을 제대로 하면 CMD에서 javac
 ![image](https://user-images.githubusercontent.com/60607880/122947549-349a4980-d3b5-11eb-85ee-e9ce91546e9c.png)   
 ![image](https://user-images.githubusercontent.com/60607880/122947668-4b40a080-d3b5-11eb-9672-93f695dbaf80.png)
 
-
