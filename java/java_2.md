@@ -43,6 +43,7 @@ public class HousePark  {
         HousePark pes = new HousePark();
     }
 }
+// --------------------------------------------
 
 public class HousePark  {
     static String lastname = "박";
