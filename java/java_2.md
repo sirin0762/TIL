@@ -81,3 +81,25 @@ public class Main {
 
 ```
 
+### 사칙연산
+자바에서는 문자열과 숫자를 '+' 기호로 숫자를 문자화 시켜 하나의 문자열로 만들수 있는 것 같다.
+```java
+public class Main {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int a = 1, b = 2;
+		
+		System.out.println("a + b = " + (a + b));
+		System.out.println("a - b = " + (a - b));
+		System.out.println("a + b = " + (a + b));
+		System.out.println("a + b = " + (a + b));
+		
+	}
+
+}
+
+```
+
