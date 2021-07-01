@@ -26,3 +26,6 @@ int[][] arr9 = { {2, 5, 3}, {4, 4, 1}, {1, 7, 3}, {3, 4, 5}}; //arr[0] >> {2, 5,
 
 ## Java 컬렉션 정리
 [Java 컬렉션 정리](https://gangnam-americano.tistory.com/41?category=976803)
+
+## Java 오름차순 내림차순 정리
+[Java 오름차순, 내림차순 정리](https://lifelife7777.tistory.com/112)
