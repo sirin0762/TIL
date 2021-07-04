@@ -1,4 +1,4 @@
-
+// 금광
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -21,8 +21,8 @@ public class Main {
 			}
 		}
 		
-		for(int i = 0; i < n; i++) {
-			for(int j = 1; j < m; j++) {
+		for(int j = 1; j < m; j++) {
+			for(int i = 0; i < n; i++) {
 				if(i == 0) {
 					arr[i][j] = arr[i][j] + Math.max(arr[i][j - 1], arr[i + 1][j - 1]);
 				}
