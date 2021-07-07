@@ -1,4 +1,4 @@
-// HashMap의 기본적인 사용법, 단순 더하는 연산은 StringBuilder를 사용하지 않아도 된다.
+// HashMap의 기본적인 사용법, 문자열 연산은 왠만하면 StringBuilder 를  이용
 import java.util.*;
 
 class Solution {
