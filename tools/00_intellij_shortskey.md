@@ -11,6 +11,8 @@
 - Ctrl + Alt + i : 자동 정렬
 
 ### 이동
+- Alt + Right or Left : 에디터 텝 좌우 이동
+- Alt + Up or Down : 메서드 단위 위 아래 이동
 - Alt + 1 : 도구창 켜기 or 끄기(포커스도 이동함)
 - F2 : 다음 오류, 경고 위치로 이동
 - Ctrl + E : 최근 실행했던 파일로 이동
@@ -25,3 +27,9 @@
 - Ctrl + F9 : 컴파일
 - Ctrl + Shift + F9 : 부분 컴파일(해당 파일만 컴파일)
 - Alt + Shift + F10 : 실행
+
+### 검색
+- Ctrl + N : 클래스 검색
+- Ctrl + Shift + N : 파일 검색
+- Ctrl + Alt + Shift + N : 메서드 검색
+- Ctrl + Shift + F : 전체 범위 검색
