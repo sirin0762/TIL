@@ -126,7 +126,7 @@ class Child extends Parent {
 }
 ```
 
-### super() 조상의 생성자
+### super() 생성자
 super() 는 조상의 생성자를 호출하는데 사용된다.(this()는 같은 클래스 내의 다른 생성자를 참조할 때 사용) 참고로 생성자는 상속되지 않는다.
 ```java
 class Point {
@@ -147,4 +147,121 @@ class Point3D extends Point {
     }
 }
 ```
+### 다형성
+다형성이란 `여러가지 형태를 가질 수 있는 능력`을 의미하며, 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 함으로써 구현했다.
+```java
+public class Main {
 
+    public static void main(String[] args) {
+        Tv t = new SmartTv("Samsung", true, 3, "Samsung TV");
+        SmartTv s = new Tv("Lg", false, 0); // 에러 : 자손타입의 참조변수는 부모 인스턴스 생성 불가
+    }
+}
+
+class Tv {
+    String maker;
+    boolean power;
+    int channel;
+
+    public Tv(String maker, boolean power, int channel) {
+        this.maker = maker;
+        this.power = power;
+        this.channel = channel;
+    }
+}
+
+class SmartTv extends Tv {
+    String caption;
+
+    public SmartTv(String maker, boolean power, int channel, String caption) {
+        super(maker, power, channel);
+        this.caption = caption;
+    }
+    
+    void setCaption(){
+        //
+    }
+}
+
+```
+
+### 참조변수의 형변환
+자손 - 조상 타입의 경우라면, 서로 형변환이 가능하다. 직접 부모 자식간의 관계가 아닐지라도 형변환이 가능하다.
+```java
+import static java.lang.System.out;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Buyer b = new Buyer(1000);
+        Tablet t = new Tablet(200);
+        b.buy(t);
+
+        System.out.println(b.money);
+        System.out.println(b.bonusPoint);
+
+        Computer c = new Computer(300);
+        b.buy(c);
+
+        System.out.println(b.money);
+        System.out.println(b.bonusPoint);
+
+    }
+}
+
+class Product {
+    int price;
+    int bounsPoint;
+
+    public Product(int price) {
+        this.price = price;
+        this.bounsPoint = (int)(price / 10.0);
+    }
+}
+
+class Tablet extends Product{
+    public Tablet(int price) {
+        super(price);
+    }
+}
+
+class Computer extends Product{
+    public Computer(int price) {
+        super(price);
+    }
+}
+
+class Buyer {
+    int money;
+    int bonusPoint;
+
+    public Buyer(int money) {
+        this.money = money;
+    }
+
+    void buy(Product p){
+        money -= p.price;
+        bonusPoint += p.bounsPoint;
+    }
+}
+```
+
+### 인터페이스
+인터페이스는 추상클래스보다 추상화 정도가 높아서 추상클래스와 달리 몸통을 갖춘 일반 메서드 또는 맴버변수를 구성원으로 가질 수 없다. 또한, 오직 추상메서드와 상수만을 멤버로 가질 수 있다.   
+인터페이스를 작성하는 것은 클래스를 작성하는 것과 같다. 다만 접근제어자로 public 또는 default만 사용할 수 있다. 다음과 같은 제약사항이 있다.
+- 모든 멤버변수는 public static final 이어야 하며, 이를 생략할 수 있다.
+- 모든 메서드는 public abstract 이어야하며, 이를 생략할 수 있다.(단, static 메서드와 디폴트 메서드는 예외)
+```java
+public interface PlayingCard {
+    public static final int SPADE = 4;
+    final int DIAMOND = 3;
+    static int HEART = 2;
+    int CLOVER = 1;
+
+    public static String getCardNumber() {
+        return null;
+    }
+
+    String getCardKind();
+}
+```
