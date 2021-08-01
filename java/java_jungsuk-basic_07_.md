@@ -126,5 +126,25 @@ class Child extends Parent {
 }
 ```
 
+### super() 조상의 생성자
+super() 는 조상의 생성자를 호출하는데 사용된다.(this()는 같은 클래스 내의 다른 생성자를 참조할 때 사용) 참고로 생성자는 상속되지 않는다.
+```java
+class Point {
+    int x, y;
 
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+class Point3D extends Point {
+    int z;
+
+    public Point3D(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
+}
+```
 
