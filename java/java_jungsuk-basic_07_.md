@@ -265,3 +265,78 @@ public interface PlayingCard {
     String getCardKind();
 }
 ```
+아래 [참고자료](https://limkydev.tistory.com/197) 
+- 상수 : 인터페이스에서 값을 정해줄테니 함부로 바꾸지 말고 제공해주는 값만 참조해라 (절대적)
+- 추상메소드 : 가이드만 줄테니 추상메소드를 오버라이팅해서 재구현해라. (강제적)
+- 디폴트메소드 : 인터페이스에서 기본적으로 제공해주지만, 맘에 안들면 각자 구현해서 써라. (선택적)
+- 정적메소드 : 인터페이스에서 제공해주는 것으로 무조건 사용 (절대적)
+
+### 인터페이스의 상속
+인터페이스는 인터페이스로 부터만 상속을 받을 수 있다. 클래스와는 달리 다중 상속이 가능하다.
+```java
+interface Movable {
+    void move(int x, int y);
+}
+
+interface Attackable {
+    void attack(Unit u);
+}
+
+public interface Fightable extends Movable, Attackable{
+}
+```
+클래스의 상속과 마찬가지로 부모가 가지고 있는 모든 맴버를 가지게 된다. 그래서 Fightable 인터페이스는 두 개의 추상메서드(move, attack)을 가진다.
+
+### 인터페이스의 구현
+만약 구현하는 인터페이스의 메서드 중 일부만 구현한다면, abstract를 붙여서 추상클래스로 선언해야한다.
+```java
+// 인터페이스의 메서드 모두 구현
+public class Fighter extends Unit implements Fightable{
+    @Override
+    public void move(int x, int y) {
+        
+    }
+
+    @Override
+    public void attack(Unit u) {
+
+    }
+}
+// 인터페이스의 메서드 일부 구현
+abstract public class Fighter extends Unit implements Fightable{
+    
+    @Override
+    public void attack(Unit u) {
+
+    }
+}
+```
+
+### 디폴트 메서드와 static 메서드
+디폴트 메서드는 추상클래스와는 달리 기본적인 구현을 제공하는 메더으이다. 추상 메서드가 아니기 때문에 디폴트 메서드가 새로 추가되어도 해당 인터페이스를 구현한 클래스를 변경하지 않아도 된다.
+```java
+interface Attackable {
+    // 추상 메서드
+    void attack(Unit u);
+    
+    // 디폴트 메서드
+    default void defaultMethod(){}
+}
+```
+대신 새로 추가된 디폴트 메서드가 기존의 메서드와 이름이 중복되어 충돌하는 경우가 발생했다. 이 충돌을 해결하는 방법은 다음과 같다.
+1. 여러 인터페이스의 디폴트 메서드 간의 충돌
+    - 인터페이스를 구현한 클래스에서 디폴트 메서드를 오버라이딩 해야한다.
+2. 디폴트 메서드와 조상 클래스의 메서드 간의 충돌
+    - 조상 클래스의 메서드가 상속되고, 디폴트 메서드는 무시된다.
+
+### 익명 클래스
+익명클래스는 이름이 없다. 클래스의 선언과 객체의 생성을 동시에 하기 때문에 단 한번만 사용할 수 있고 오직 하나의 객체만을 생성할 수 있는 일회용 클래스이다.   
+```java
+new 조상클래스이름(){
+    // 멤버 선언
+}
+
+new 구현인터페이스이름(){
+    // 멤버 선언
+}
+```
