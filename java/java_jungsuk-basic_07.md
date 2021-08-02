@@ -186,62 +186,43 @@ class SmartTv extends Tv {
 ```
 
 ### 참조변수의 형변환
-자손 - 조상 타입의 경우라면, 형변환이 가능하다. 직접 부모 자식간의 관계가 아닐지라도 형변환이 가능하다. 단, 부모 참조 변수 = 자식 인스턴스 로 해야한다.(단방향)
+자손 - 조상 타입의 경우라면, 형변환이 가능하다. 직접 부모 자식간의 관계가 아닐지라도 형변환이 가능하다.
 ```java
-import static java.lang.System.out;
-
 public class Main {
-
     public static void main(String[] args) {
-        Buyer b = new Buyer(1000);
-        Tablet t = new Tablet(200);
-        b.buy(t);
-
-        System.out.println(b.money);
-        System.out.println(b.bonusPoint);
-
-        Computer c = new Computer(300);
-        b.buy(c);
-
-        System.out.println(b.money);
-        System.out.println(b.bonusPoint);
+        // Car의 인스턴스 생성
+        Car c = new Car();
+        // FireEngine 인스턴스 생성
+        FireEngine fe = new FireEngine();
+         
+        // fe의 인스턴스 주소를 c에 배정
+        c = fe;
+        
+        // fe의 인스턴스 주소를 가지고 있기 때문에 형변환하여 fe2에게 주는 것 가능
+        FireEngine fe2 = (FireEngine)c;
+        
+        // FireEngine의 멤버 사용가능
+        fe2.water();
 
     }
 }
 
-class Product {
-    int price;
-    int bounsPoint;
+class Car {
+    String color;
+    int door;
 
-    public Product(int price) {
-        this.price = price;
-        this.bounsPoint = (int)(price / 10.0);
+    void drive(){
+        System.out.println("Drive");
+    }
+
+    void stop(){
+        System.out.println("Stop");
     }
 }
 
-class Tablet extends Product{
-    public Tablet(int price) {
-        super(price);
-    }
-}
-
-class Computer extends Product{
-    public Computer(int price) {
-        super(price);
-    }
-}
-
-class Buyer {
-    int money;
-    int bonusPoint;
-
-    public Buyer(int money) {
-        this.money = money;
-    }
-
-    void buy(Product p){
-        money -= p.price;
-        bonusPoint += p.bounsPoint;
+class FireEngine extends Car {
+    void water(){
+        System.out.println("water~");
     }
 }
 ```
