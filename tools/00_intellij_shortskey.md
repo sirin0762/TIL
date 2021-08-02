@@ -4,6 +4,7 @@
 - Alt + insert : 파일 생성, 클래스 생성, 클래스 내부의 필드와 관련한 getter, setter 등의 메소드 자동 생성
 - Ctrl + D : 한 줄 복사
 - Ctrl + Y : 한 줄 삭제
+- Ctrl + T : 리펙토링(원래는 Ctrl + Shift + Alt + T)
 - Ctrl + Shift + J : 라인 합치기 : 커서 아래의 라인과 커서의 라인이 합쳐짐
 - Alt + Shift + ⇧ ⇩ : 한 줄 이동
 - Ctrl + Alt + V : 변수 자동 완성(값이나 메소드 위에서 누르면 자료형과 변수명이 자동 완성 됨)
@@ -14,6 +15,7 @@
 - Alt + Right or Left : 에디터 텝 좌우 이동
 - Alt + Up or Down : 메서드 단위 위 아래 이동
 - Alt + 1 : 도구창 켜기 or 끄기(포커스도 이동함)
+- Ctrl + 1 : 도구창으로 커서 이동
 - F2 : 다음 오류, 경고 위치로 이동
 - Ctrl + E : 최근 실행했던 파일로 이동
 - Ctrl + B : 심볼의 선언으로 이동
@@ -33,3 +35,8 @@
 - Ctrl + Shift + N : 파일 검색
 - Ctrl + Alt + Shift + N : 메서드 검색
 - Ctrl + Shift + F : 전체 범위 검색
+
+### 자동완선
+- sout : System.out.println()
+- psvm : public static void main(String args[]){}\
+- fori : for문 자동완성
