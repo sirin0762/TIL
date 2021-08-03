@@ -1,4 +1,4 @@
-#9장. java.lang 패기지와 유용한 클래스
+# 9장. java.lang 패기지와 유용한 클래스
 java.lang 패키지는 자바프로그래밍에 가장 기본이 되는 클래스들을 포함하고 있다. 그렇게 때문에 java.lang 패키지는 import문 없이도 사용가능하다.
 
 ## Object 클래스의 메서드
@@ -13,8 +13,6 @@ public boolean equals(Object obj){
 ```
 코드를 보면, 정말 참조변수를 비교하는 기능밖에 없다. 따라서 Value 를 비교하고 싶다면 오버라이딩해서 사용해야한다.
 ```java
-package com.programmers.java;
-
 class Student {
     int id;
     
@@ -100,15 +98,9 @@ class Member {
         return age + name.hashCode();
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-
-    }
-}
 ```
 ### toString()
-인스턴스에 대한 정보를 문자열로 제공하기 위한 메서드이다. 바로 밑의 코드는 Object 클래스의 toString() 메소드로, 클래스 이름과 해시코드를 합쳐 리턴하는 기능이다. 일반적인 객체의 값을 보기위해서는 오버라이딩해서 객체의 필드(속성)을 보여주는 방식으로 바꿔줘야한다.
+인스턴스에 대한 정보를 문자열로 제공하기 위한 메서드이다. 바로 밑의 코드는 Object 클래스의 toString() 메서드로, 클래스 이름과 해시코드를 합쳐 리턴하는 기능이다. 일반적인 객체의 값을 보기위해서는 오버라이딩해서 객체의 필드(속성)을 보여주는 방식으로 바꿔줘야한다.
 ```java
 public String toString(){
   return getClass().getName()+"@"+Integer.toHexString(hashCode());
@@ -217,4 +209,20 @@ StringBulilder 는 StringBuffer에서 동기화 키워드를 빼 싱글쓰레드
 ![image](https://user-images.githubusercontent.com/60607880/127960207-a1214916-462b-4551-917a-77ecb184700c.png)
 
 - BigInteger : long을도 다룰 수 없는 큰 범위의 정수
-- BigDecimal : double로도 다룰 수 없는 큰 범위의 부동 점수
+- BigDecimal : double로도 다룰 수 없는 큰 범위의 부동 소수점수
+
+### AutoBoxing 과 UnBoxing
+JDK 1.5 이후로는 컴파일러가 자동으로 변환하는 기능이 추가되어 기본형과 참조형 간의 덧셈이 가능해졌다. 이 때, 기본형 값을 레퍼 클래스의 객체로 자동 변환해주는 것을 `오토박싱` 이라고 하고,
+반대로 변환하는 것을 `언박싱` 이라고 한다.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(10);  // 오토박싱
+        
+        int value = arrayList.get(0);   // 언박싱
+
+    }
+}
+```
