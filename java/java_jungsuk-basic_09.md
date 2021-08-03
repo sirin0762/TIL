@@ -1,4 +1,4 @@
-## java.lang 패기지와 유용한 클래스
+#9장. java.lang 패기지와 유용한 클래스
 java.lang 패키지는 자바프로그래밍에 가장 기본이 되는 클래스들을 포함하고 있다. 그렇게 때문에 java.lang 패키지는 import문 없이도 사용가능하다.
 
 ## object 클래스
