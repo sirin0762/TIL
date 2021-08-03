@@ -36,7 +36,7 @@
 - Ctrl + Alt + Shift + N : 메서드 검색
 - Ctrl + Shift + F : 전체 범위 검색
 
-### 자동완선
+### 자동완
 - sout : System.out.println()
 - psvm : public static void main(String args[]){}\
 - fori : for문 자동완성
