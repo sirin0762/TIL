@@ -1,10 +1,8 @@
 #9장. java.lang 패기지와 유용한 클래스
 java.lang 패키지는 자바프로그래밍에 가장 기본이 되는 클래스들을 포함하고 있다. 그렇게 때문에 java.lang 패키지는 import문 없이도 사용가능하다.
 
-## object 클래스
-Object클래스는 모든 클래스의 최고 조상이기 때문에 Object클래스의 맴버들은 모든 클래스에서 바로 사용가능하다.
-
 ## Object 클래스의 메서드
+Object클래스는 모든 클래스의 최고 조상이기 때문에 Object클래스의 맴버들은 모든 클래스에서 바로 사용가능하다.
 
 ### equals()
 매게변수 객체의 참조변수를 받아서 비교하는 기능이다. 바로 아래의 코드는 Object 클래스의 equals() 메서드 이다.
@@ -156,4 +154,67 @@ class Member {
 ## StringBuffer와 StringBuilder
 
 ### StringBuffer
+StringBuffer 는 내부적으로 문자열 편집을 위한 buffer를 가지고 있다. 인스턴스 생성시에 그 크기 지정이 가능하다.
+```java
+public class TestStringBuffer {
+    public static void main(String[] args) {
+        // default(buffer의 기본 크기값은 16이다)
+        StringBuffer sb = new StringBuffer();
+        
+        // 문자열을 바로 StringBuffer 클래스로(버퍼의 크기는 문자열의 길이 + 16이다)
+        StringBuffer sb = new StringBuffer(String str);
+        
+        // 버퍼 크기 지정
+        StringBuffer sb = new StringBuffer(int length);
+        
+        // 버퍼 크기 확인
+        System.out.println(sb.capacity());
 
+    }
+}
+```
+아래의 코드는 StringBuffer클래스의 일부인데, 버퍼의 크기를 변경하는 내용의 코드이다. 만약 버퍼의 크기보다 더 많은 문자열 연산이 들어온다면, 내부적으로 버퍼의 크기를 증가시키는 작업이 수행된다. 배열의 길이는 변경될 수 없으므로 새로운 배열을 생성하여 이전 배열의 값을 복사한다.
+```java
+char newValue[] = new char[newCapacity];
+
+System.arraycopy(value, 0, newValue, 0 , count);
+value = newValue;
+```
+
+### StringBuffer의 비교
+String 클래스에서는 equals 메서드를 오버라이딩해서 문자열의 내용을 비교하도록 구현되어 있지만, StringBuffer 클래스는 equals메서드를 오버라이딩 하지않아서 equals 메서드와 등가비교연산자(==)가 같은 결과를 얻는다. 따라서 StringBuffer를 비교하려면, toString 메서드로 문자열로 바꾼뒤 String클래스의 equals() 메서드로 비교해야한다.
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        StringBuffer sb1 = new StringBuffer("Hello");
+        StringBuffer sb2 = new StringBuffer("Hello");
+
+        // 두 인스턴스의 주소가 다르기 때문에 둘다 false
+        System.out.println(sb1 == sb2);
+        System.out.println(sb1.equals(sb2));
+        System.out.println(sb1.toString() == sb1.toString());
+
+        // 두 인스턴스의 주소는 다르나, String 클래스는 Value로 비교하기 때문에 true
+        System.out.println(sb1.toString().equals(sb2.toString()));
+    }
+}
+// 결과값
+false
+false
+false
+true
+```
+### StringBuilder
+StringBulilder 는 StringBuffer에서 동기화 키워드를 빼 싱글쓰레드 환경에서 더 빠르게 동작하도록 만들어진 클래스이다. 정리하면
+- String : 문자열 연산(X)
+- StringBuffer : 문자열 연산(O), 멀티쓰레드 환경
+- StringBulider : 문자열 연산(O), 싱글쓰레드거나 동기화를 고려하지 않을 경우
+
+---
+
+## 래퍼(Wrapper) 클래스
+기본형 변수도 객체로 다룰 때 사용한다. 예를 들면 매개변수로 객체를 요구할 때, 기본형 값이 아닌 객체로 저장해야할 때, 객체간의 비교가 필요할 때 등등의 경우에는 기본형 값들을 객체로 변환하여 작업을 수행해야한다. 이 때 사용하는 것이 Wraaper 클래스이다.
+![image](https://user-images.githubusercontent.com/60607880/127960207-a1214916-462b-4551-917a-77ecb184700c.png)
+
+- BigInteger : long을도 다룰 수 없는 큰 범위의 정수
+- BigDecimal : double로도 다룰 수 없는 큰 범위의 부동 점수
