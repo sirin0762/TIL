@@ -107,7 +107,7 @@ public class Main {
 }
 ```
 ### toString()
-인스턴스에 대한 정보를 문자열로 제공하기 위한 메서드이다.
+인스턴스에 대한 정보를 문자열로 제공하기 위한 메서드이다. 바로 밑의 코드는 클래스의 이름과 해시코드를 합친 기능이다. 따라서 일반적인 객체의 값을 보기위해서는 오버라이딩해서 객체의 필드(속성)을 보여주는 방식으로 바꿔줘야한다.
 ```java
 public String toString(){
   return getClass().getName()+"@"+Integer.toHexString(hashCode());
@@ -138,7 +138,8 @@ class Member {
         this.name = name;
         this.age = age;
     }
-
+    
+    // 객체의 필드(속성)이 리턴되도록 오버라이딩
     @Override
     public String toString() {
         return "Member{" +
