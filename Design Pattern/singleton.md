@@ -60,7 +60,7 @@ public class Singleton {
 [여기](https://nesoy.github.io/articles/2018-06/Java-volatile)
 
 ### 4. Lazy Holder(게으론 홀더, Thread-safe)
-가장 많이 사용되는 싱글톤 구현 방식, volatile 이나 synchronized 키워드 없이도 동시성 문제를 해결하기 때문에 성능이 뛰어남
+가장 많이 사용되는 싱글톤 구현 방식, volatile 이나 synchronized 키워드 없이도 동시성 문제를 해결하기 때문에 성능이 뛰어남 내부의 static 메서드를 만들고, getInstance 에서 호출될 때, 내부 클래스를 이용하여 인스턴스를 생성한다. 
 ```java
 public class Singleton {
     
