@@ -58,3 +58,21 @@ public class Singleton {
 ```
 2번의 동기화 블럭 방식을 개선한 방식이다. 인스턴스가 생성되지 않은 경우에만 동기화를 하여 실행된다. volatile 키워드를 이용하여 CPU-cache 에서의 변수값 불일치 문제를 막는다. volatile 키워드는 
 [여기](https://nesoy.github.io/articles/2018-06/Java-volatile)
+
+### 4. Lazy Holder(게으론 홀더, Thread-safe)
+가장 많이 사용되는 싱글톤 구현 방식, volatile 이나 synchronized 키워드 없이도 동시성 문제를 해결하기 때문에 성능이 뛰어남
+```java
+public class Singleton {
+    
+    private Singleton(){}
+    
+    private static class InnerInstanceClass {
+        private static final Singleton singleton = new Singleton();
+    }
+    
+    public static Singleton getInstance(){
+        return InnerInstanceClass.singleton;
+    }
+}
+```
+I
