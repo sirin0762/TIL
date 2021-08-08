@@ -191,7 +191,7 @@ public class Main {
 ### 스트림의 중간 연산 - Comparator의 메서드
 
 - JDK 1.8 부터 Comparator 인터페이스에 생긴 static 메서드와 default 메서들을 사용
-- 가장 기본적인 메서드는 comparing() 이다. comparing의 매게 변수는 Functioin 인터페이스로 정렬 할 키에 관한 람다식을 만들어서 주면 된다.
+- 가장 기본적인 메서드는 comparing() 이다. comparing의 매게 변수는 Function 인터페이스를 이용하여(apply 함수) 정렬 할 키에 관한 람다식을 만들어서 주면 된다.
 
 ```
 public class Main {
