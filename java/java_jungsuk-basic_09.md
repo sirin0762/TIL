@@ -203,6 +203,69 @@ StringBulilder 는 StringBuffer에서 동기화 키워드를 빼 싱글쓰레드
 - StringBuffer : 문자열 연산(O), 멀티쓰레드 환경
 - StringBulider : 문자열 연산(O), 싱글쓰레드거나 동기화를 고려하지 않을 경우
 
+### 성능차이 확인
+```java
+class Timer {
+    private long startTime;
+    private long endTime;
+
+    public void startClock(){
+        startTime = System.currentTimeMillis();
+    }
+
+    public void endClock(){
+        endTime = System.currentTimeMillis();
+    }
+
+    public void printClock(String prompt){
+        System.out.println(prompt + ": " + (endTime - startTime) + " ms");
+    }
+}
+
+public class Main {
+    private static final int LOOP_TIME = 50_000;
+
+    public static void main(String[] args) {
+        //
+        Timer timer = new Timer();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        timer.startClock();
+        for (int i = 0; i < LOOP_TIME; i++) {
+            stringBuilder.append("count").append(i).append("end");
+        }
+        timer.endClock();
+        timer.printClock("StringBuilder");
+
+        //
+        StringBuffer stringBuffer = new StringBuffer();
+
+        timer.startClock();
+        for (int i = 0; i < LOOP_TIME; i++) {
+            stringBuilder.append("count").append(i).append("end");
+        }
+        timer.endClock();
+        timer.printClock("StringBuffer");
+
+
+        String str = "";
+
+        timer.startClock();
+        for (int i = 0; i < LOOP_TIME; i++) {
+            str += "count" + i + "end";
+        }
+        timer.endClock();
+        timer.printClock("String");
+
+
+    }
+}
+
+// 결과값
+StringBuilder: 11 ms
+StringBuffer: 7 ms
+String: 5006 ms
+```
 ---
 
 ## 래퍼(Wrapper) 클래스
@@ -213,8 +276,12 @@ StringBulilder 는 StringBuffer에서 동기화 키워드를 빼 싱글쓰레드
 - BigDecimal : double로도 다룰 수 없는 큰 범위의 부동 소수점수
 
 ### AutoBoxing 과 UnBoxing
-JDK 1.5 이후로는 컴파일러가 자동으로 변환하는 기능이 추가되어 기본형과 참조형 간의 덧셈이 가능해졌다. 이 때, 기본형 값을 레퍼 클래스의 객체로 자동 변환해주는 것을 `오토박싱` 이라고 하고,
-반대로 변환하는 것을 `언박싱` 이라고 한다.
+- Boxing : Primitive -> Wrapper
+- UnBoxing : Wrapper -> Primitive
+
+JDK 1.5 이후부터 primitive와 Wrapper의 자동 변환을 통한 덧셈이 가능해졌지만, 성능면을 고려할 때, 개발자가 직접 명시해주는 것이 좋다.
+- 명시적 선언 : 직접 타입에 대해 케스팅함
+- 묵시적 선언 : AutoBoxing 이라고 하며, 캐스팅하지 않아도 알아서 타입변환이 일어남
 
 ```java
 public class Main {
@@ -227,3 +294,40 @@ public class Main {
     }
 }
 ```
+
+### 성능확인
+- autoBoxing이라고 하나, 개발자가 명시해준것과 프로그램이 변환해주는 것은 성능차이가 생길 수 밖에 없다.
+```java
+public class Main {
+    private static final int LOOP_TIME = 100_000_000;
+
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+
+        // 명시적
+        timer.startClock();
+        long sum = 0L;
+
+        for (long i = 0; i < LOOP_TIME; i++) {
+            sum += i;
+        }
+        timer.endClock();
+        timer.printClock("명시적");
+
+        // 묵시적
+        Long sum2 = 0L;
+        timer.startClock();
+
+        for (long i = 0; i < LOOP_TIME; i++) {
+            sum2 += i;
+        }
+        timer.endClock();
+        timer.printClock("묵시적");
+    }
+}
+
+//결과값
+명시적: 32 ms
+묵시적: 536 ms
+```
+
