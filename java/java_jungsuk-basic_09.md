@@ -95,7 +95,8 @@ class Member {
     // 이렇게 Value가 같으면 hashCode도 같게 설정
     @Override
     public int hashCode(){
-        return age + name.hashCode();
+        Objects.hash() : 주어진 인자들로 배열을 만들어 Arrays.hashCode()의 인자로 해시코드 생성
+        return Objects.hash(name, age);
     }
 }
 ```
