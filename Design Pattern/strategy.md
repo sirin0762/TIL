@@ -41,6 +41,10 @@ public class SearchButton {
 ```
 - 위와같은 방식은 각각의 메서드에 수정 사항이 생기거나, 새로운 기능이 추가되면, onClick() 메서드를 다시 수정해야합니다. 이는 OCP에 어긋납니다. 확장성이 좋지않고, 복잡할 수록 관리가 어렵습니다.
 - 전략 패턴은 위와 같은 코드에서, 동작을 하는 기능을 모듈화하여, 동작이 변할 때마다 모듈을 갈아끼우는 방식으로 구현합니다.
+- 방식은 다음과 같습니다.
+1. 동작의 접점을 만들어줄 추상체와 해당 추상체의 메서드를 오버라이드하여 구체적인 동작을 할 클래스를 만듭니다.
+   - 접점이 될 interface인 SearchStragegy를 만들고, 블럭내에 구체적인 동작을 오버라이드 할 메서드를 만듭니다.
+   - SearchStragegy 인터페이스를 implements 하여 오버라이드 하기만 하면 동작이 추가됩니다.
 ```java
 interface SearchStrategy {
     public void search();
@@ -73,7 +77,9 @@ class SearchStrategyMap implements SearchStrategy {
         System.out.println("Search Map");
     }
 }
-
+```
+2. 해당 동작들을 사용할 경우, 사용하는 클래스에서 `추상체 참조변수 = new 구상체()` 로, 인터페이스를 통한 형변환이 이루어지게 가져와 사용합니다.
+```java
 public class SearchButton {
 
     private MyProgram myProgram;
@@ -92,6 +98,9 @@ public class SearchButton {
         searchStrategy.search();
     }
 }
+```
+3. 동작을 바꿀 경우, 앞서 만들었던 모듈을 생성하여 인터페이스 참조변수에 할당해주면 됩니다. 메서드가 오버라이드 되있기 때문에 동작 실행이 가능합니다.
+```java
 
 public class MyProgram {
 
@@ -115,8 +124,13 @@ public class MyProgram {
 }
 
 ```
+
+### 정리
 - SearchButton 클래스를 보시면, 인터페이스의 참조 변수를 구현된 클래스에 연결하여 오버라이드와 형변환을 통해 모듈을 끼워넣을 수 있습니다.
 - 이처럼 옵션들 마다의 행동들을 모듈화하여 독립적이게 교체 가능하게 만드는 것이 전략 패턴 입니다.
+
+### reference
+[https://www.youtube.com/watch?v=lJES5TQTTWE&t=410s](https://www.youtube.com/watch?v=lJES5TQTTWE&t=410s)
 
 
 
