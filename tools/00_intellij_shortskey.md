@@ -41,6 +41,7 @@
 - Alt + J : 같은 단어 선택 및 커서 
 - Alt + shift + click : 멀티커서
 - ctrl + ctrl + up / donw : 라인 위아래 멀티커서
+- mouse wheel click + drag : 드래그 
 ### 자동완성
 - sout : System.out.println()
 - psvm : public static void main(String args[]){}\
